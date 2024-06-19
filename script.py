@@ -2,6 +2,7 @@ import requests
 import os
 from os.path import dirname, join
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 import schedule
 import time
 
@@ -22,7 +23,7 @@ def restart_all_dynos():
 	r = requests.delete(url = URL, headers=HEADERS)
 	print(r.status_code)
 	return r.status_code
-	
+keep_alive()	
 restart_all_dynos()
 
 schedule.every(20).minutes.do(restart_all_dynos)
