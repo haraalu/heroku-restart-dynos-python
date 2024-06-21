@@ -26,7 +26,7 @@ def restart_all_dynos():
 keep_alive()	
 restart_all_dynos()
 
-schedule.every(120).minutes.do(restart_all_dynos)
+schedule.every(90).minutes.do(restart_all_dynos)
 print("SCRIPT STARTED SUCCESSFULY")
 while True:
     schedule.run_pending()
